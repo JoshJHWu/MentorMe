@@ -1,35 +1,35 @@
-<%=form_for @user do |f|%>
+<%=form_tag users_path do %>
   <p>
-    <%=f.label :email%>
-    <%=f.text_field :email%>
+    <%=label_tag :email%>
+    <%=text_field_tag 'user[email]'%>
   </p>
   <p>
-    <%=f.label :password%>
-    <%=f.password_field :password%>
+    <%=label_tag :password%>
+    <%=password_field_tag 'user[password]'%>
   </p>
   <p>
-    <%=f.label :first_name%>
-    <%=f.text_field :first_name%>
+    <%=label_tag :first_name%>
+    <%=text_field_tag  'user[first_name]'%>
   </p>
   <p>
-    <%=f.label :last_name%>
-    <%=f.text_field :last_name%>
+    <%=label_tag :last_name%>
+    <%=text_field_tag 'user[last_name]'%>
   </p>
   <p>
-    <%=f.label :phone%>
-    <%=f.text_field :phone%>
+    <%=label_tag :phone%>
+    <%=text_field_tag 'user[phone]'%>
   </p>
   <p>
-    <%=f.label 'Phase'%>
-    <select name='phase'>
+    <%=label_tag 'Phase'%>
+    <select name='user[phase]'>
       <option value='1'>1</option>
       <option value='2'>2</option>
       <option value='3'>3</option>
     </select>
   </p>
   <p>
-    <%=f.label 'Are you registering as a mentor?'%>
-    <%=f.check_box :type,{}, 'Mentor', 'Student'%>
+    <%=label_tag 'Are you registering as a mentor?'%>
+    <%=check_box_tag 'user[type]', 'Mentor', 'Student'%>
   </p>
-  <%=f.submit%>
+  <%=submit_tag%>
 <%end%>
