@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users do
-    # resources :mentors
-    # resources :students
-  end
+  resources :users
 
   get 'login' => 'sessions#new', as: 'login'
   post 'login'=> 'sessions#create'

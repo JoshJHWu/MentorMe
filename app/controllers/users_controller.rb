@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def update
@@ -39,12 +38,18 @@ class UsersController < ApplicationController
 
   private
   def user_params
+    if params.has_key? :mentor
+      params[:user] = params.delete :mentor
+    elsif params.has_key? :student
+      params[:user] = params.delete :student
+    end
+
     params.require(:user).permit(:type,
-                                 :phase,
-                                 :email,
-                                 :password,
-                                 :phone,
-                                 :first_name,
-                                 :last_name)
+                               :phase,
+                               :email,
+                               :password,
+                               :phone,
+                               :first_name,
+                               :last_name)
   end
 end

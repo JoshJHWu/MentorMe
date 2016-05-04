@@ -1,7 +1,7 @@
 <%=form_tag users_path do %>
   <p>
     <%=label_tag :email%>
-    <%=text_field_tag 'user[email]'%>
+    <%=text_field_tag 'user[email]', @user.email%>
   </p>
   <p>
     <%=label_tag :password%>
@@ -9,15 +9,15 @@
   </p>
   <p>
     <%=label_tag :first_name%>
-    <%=text_field_tag  'user[first_name]'%>
+    <%=text_field_tag  'user[first_name]', @user.first_name%>
   </p>
   <p>
     <%=label_tag :last_name%>
-    <%=text_field_tag 'user[last_name]'%>
+    <%=text_field_tag 'user[last_name]', @user.last_name%>
   </p>
   <p>
     <%=label_tag :phone%>
-    <%=text_field_tag 'user[phone]'%>
+    <%=text_field_tag 'user[phone]', @user.phone%>
   </p>
   <p>
     <%=label_tag 'Phase'%>
@@ -33,3 +33,5 @@
   </p>
   <%=submit_tag%>
 <%end%>
+
+<!-- , {value=@user.try(:email)} -->
