@@ -1,0 +1,27 @@
+<h1><%=@user.first_name%>'s profile</h1>
+<table>
+  <tr>
+    <td>Name: </td>
+    <td><%=@user.first_name%> <%=@user.last_name%></td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td><%=@user.type %></td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td><%=@user.email%></td>
+  </tr>
+  <tr>
+    <td>Phone:</td>
+    <td><%=@user.phone%></td>
+  </tr>
+  <tr>
+    <td>Currently in</td>
+    <td>Phase: <%=@user.phase%></td>
+  </tr>
+</table>
+
+<%= link_to  "Edit this profile" , edit_user_path(@user)%>
+
+
