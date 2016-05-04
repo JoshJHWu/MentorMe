@@ -1,0 +1,35 @@
+<%=form_for @user do |f|%>
+  <p>
+    <%=f.label :email%>
+    <%=f.text_field :email%>
+  </p>
+  <p>
+    <%=f.label :password%>
+    <%=f.password_field :password%>
+  </p>
+  <p>
+    <%=f.label :first_name%>
+    <%=f.text_field :first_name%>
+  </p>
+  <p>
+    <%=f.label :last_name%>
+    <%=f.text_field :last_name%>
+  </p>
+  <p>
+    <%=f.label :phone%>
+    <%=f.text_field :phone%>
+  </p>
+  <p>
+    <%=f.label 'Phase'%>
+    <select name='phase'>
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+    </select>
+  </p>
+  <p>
+    <%=f.label 'Are you registering as a mentor?'%>
+    <%=f.check_box :type,{}, 'Mentor', 'Student'%>
+  </p>
+  <%=f.submit%>
+<%end%>
