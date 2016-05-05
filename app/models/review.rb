@@ -5,4 +5,12 @@ class Review < ActiveRecord::Base
   # validates :body, length: { minimum: 20 } #commented out for testing
   # belongs_to :appointment
   belongs_to :user
+
+  def author
+    self.user
+  end
+
+  def author_fullname
+    "#{self.author.first_name} #{self.author.last_name}"
+  end
 end
