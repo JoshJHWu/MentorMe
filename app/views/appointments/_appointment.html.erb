@@ -1,3 +1,14 @@
+<hr>
 <p>
   <a href="/appointments/<%=appointment.id%>"><%=appointment.start_time%> with <%=appointment.mentor.first_name%></a>
+
+  <%if appointment.is_booked?%>
+    <h4>Appointment has been booked</h4>
+  <%end%>
+
+  <%if !appointment.is_booked? && !current_user.is_mentor? %>
+    <%=form_for appointment do |f|%>
+      <%=f.submit "Book-it" %>
+    <%end%>
+  <%end%>
 </p>

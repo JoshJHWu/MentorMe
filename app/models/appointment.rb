@@ -5,4 +5,11 @@ class Appointment < ActiveRecord::Base
   belongs_to :mentor, class_name: "User"
   belongs_to :student, class_name: "User"
 
+  def is_booked?
+    if self.student_id == nil
+      return false
+    else
+      return true
+    end
+  end
 end
