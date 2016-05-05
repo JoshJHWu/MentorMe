@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointments = Appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
   end
 
   def create

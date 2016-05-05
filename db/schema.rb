@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20160505141211) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "type",       null: false
+    t.integer  "rating",     null: false
+    t.text     "body",       null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "type",            default: "Student"
     t.integer  "phase",                               null: false
