@@ -19,7 +19,4 @@ class SessionsController < ApplicationController
     redirect_to '/login'
   end
 
-  def login_params
-    params.require(:user).permit(:email, :password)
-  end
 end
