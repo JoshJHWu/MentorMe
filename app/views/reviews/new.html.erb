@@ -1,0 +1,18 @@
+<div class="container">
+  <%=form_for @review do |f| %>
+    <table>
+      <tr>
+        <td>Rating(1-5):</td>
+        <td><%= f.text_field :rating %></td>
+      </tr>
+      <tr>
+        <td>Enter Feedback here!</td>
+        <td><%= f.text_area :body, size: "50x4" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= f.submit "Send feeback!" %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
