@@ -1,8 +1,10 @@
 <div class="container">
+  <h1>Leave feedback below!</h1>
+  <p>Remember, feedback should be actionable, specific, and kind!</p>
   <%=form_for @review do |f| %>
-    <table>
+    <table id='new-review'>
       <tr>
-        <td>Rating(1-5):</td>
+        <td>Rating (1-5):</td>
         <td><%= f.text_field :rating %></td>
       </tr>
       <tr>

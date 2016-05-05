@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.nav {
+  margin-top: 20px;
+}
+.nav a {
+  color: #5a5a5a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 20px 10px;
+  text-transform: uppercase;
+}
+
+#new-review td {
+  padding: 10px;
+}
+
+a:hover {
+  color:#FF530D;
+}
+
+.nav li {
+  display: inline;
+}
+
+.learn-more {
+  background-color: #f7f7f7;
+}
+
+.learn-more h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.learn-more a {
+  color: #00b0ff;
+}
+
+
+footer {
+  text-align: center;
+}
