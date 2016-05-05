@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :reviews
 
   def is_mentor?
-    current_user.type.downcase == "mentor"
+    self.type.downcase == "mentor"
   end
 
 end
