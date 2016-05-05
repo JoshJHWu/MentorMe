@@ -7,11 +7,14 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create
 
   has_secure_password
+  has_many :appointments
   has_many :reviews
 
   def is_mentor?
     self.type.downcase == "mentor"
   end
 
-  has_many :appointments
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

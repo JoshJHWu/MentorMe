@@ -1,37 +1,44 @@
+<h1>Join MentorMe!</h1>
+<p>MentorMe is a site where DevBootcamp students can sign up to get mentored or do mentoring! We hope you enjoy this app.</p>
 <%=form_tag users_path do %>
-  <p>
-    <%=label_tag :email%>
-    <%=text_field_tag 'user[email]', @user.email%>
-  </p>
-  <p>
-    <%=label_tag :password%>
-    <%=password_field_tag 'user[password]'%>
-  </p>
-  <p>
-    <%=label_tag :first_name%>
-    <%=text_field_tag  'user[first_name]', @user.first_name%>
-  </p>
-  <p>
-    <%=label_tag :last_name%>
-    <%=text_field_tag 'user[last_name]', @user.last_name%>
-  </p>
-  <p>
-    <%=label_tag :phone%>
-    <%=text_field_tag 'user[phone]', @user.phone%>
-  </p>
-  <p>
-    <%=label_tag 'Phase'%>
-    <select name='user[phase]'>
-      <option value='1'>1</option>
-      <option value='2'>2</option>
-      <option value='3'>3</option>
-    </select>
-  </p>
-  <p>
-    <%=label_tag 'Are you registering as a mentor?'%>
-    <%=check_box_tag 'user[type]', 'Mentor', 'Student'%>
-  </p>
-  <%=submit_tag%>
+  <table id="form-table">
+    <tr>
+      <td>First Name: </td>
+      <td><%=text_field_tag  'user[first_name]', @user.first_name%></td>
+    </tr>
+    <tr>
+      <td>Last Name: </td>
+      <td><%=text_field_tag 'user[last_name]', @user.last_name%></td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td><%=text_field_tag 'user[phone]', @user.phone%></td>
+    </tr>
+    <tr>
+      <td>Current Phase:</td>
+      <td>
+        <select name='user[phase]'>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Are you a Mentor?</td>
+      <td><%=check_box_tag 'user[type]', 'Mentor', 'Student'%></td>
+    </tr>
+    <tr>
+      <td>Email: </td>
+      <td><%=text_field_tag 'user[email]', @user.email%></td>
+    </tr>
+    <tr>
+      <td>Password: </td>
+      <td><%=password_field_tag 'user[password]'%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%=submit_tag%></td>
+    </tr>
+  </table>
 <%end%>
-
-<!-- , {value=@user.try(:email)} -->

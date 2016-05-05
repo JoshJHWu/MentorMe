@@ -1,18 +1,28 @@
 <div class="container">
-  <%=form_for @review do |f| %>
-    <table>
-      <tr>
-        <td>Rating(1-5):</td>
-        <td><%= f.text_field :rating %></td>
-      </tr>
-      <tr>
-        <td>Enter Feedback here!</td>
-        <td><%= f.text_area :body, size: "50x4" %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "Send feeback!" %></td>
-      </tr>
-    </table>
-  <% end %>
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-3">
+    </div>
+    <div class="col-md-6 col-sm-6">
+    <h1>Leave feedback below!</h1>
+    <p>Remember, feedback should be actionable, specific, and kind!</p>
+    <%=form_for @review do |f| %>
+      <table id='form-table'>
+        <tr>
+          <td>Rating (1-5):</td>
+          <td><%= f.text_field :rating %></td>
+        </tr>
+        <tr>
+          <td>Enter Feedback here!</td>
+          <td><%= f.text_area :body, size: "30x4" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "Send feeback!" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+    <div class="col-md-3 col-sm-3 col-xs-3">
+    </div>
+  </div>
 </div>
