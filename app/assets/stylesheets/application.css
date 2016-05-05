@@ -24,6 +24,37 @@ body{
   max-width: 960px;
 }
 
+.row {
+  margin: 0 auto;
+}
+
+#form-table td {
+  padding: 10px;
+}
+
+#profile-table td {
+  padding: 10px;
+}
+
+#user-profile-box  {
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 100%;
+}
+
+#user-photo-box{
+  height: 100%;
+}
+
+#top-of-profile-row {
+  height: 300px;
+}
+
+
+a:hover {
+  color:#FF530D;
+}
+
 .nav {
   margin-top: 20px;
 }
@@ -33,14 +64,6 @@ body{
   font-weight: bold;
   padding: 20px 10px;
   text-transform: uppercase;
-}
-
-#form-table td {
-  padding: 10px;
-}
-
-a:hover {
-  color:#FF530D;
 }
 
 .nav li {
@@ -60,7 +83,6 @@ a:hover {
 .learn-more a {
   color: #00b0ff;
 }
-
 
 footer {
   text-align: center;
