@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       session[:user_id] = @user.id
       redirect_to '/'
@@ -12,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    redirect_to '/' unless !logged_in?
     @user = User.new
   end
 
