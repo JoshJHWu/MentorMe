@@ -1,0 +1,37 @@
+<%=form_tag users_path do %>
+  <p>
+    <%=label_tag :email%>
+    <%=text_field_tag 'user[email]', @user.email%>
+  </p>
+  <p>
+    <%=label_tag :password%>
+    <%=password_field_tag 'user[password]'%>
+  </p>
+  <p>
+    <%=label_tag :first_name%>
+    <%=text_field_tag  'user[first_name]', @user.first_name%>
+  </p>
+  <p>
+    <%=label_tag :last_name%>
+    <%=text_field_tag 'user[last_name]', @user.last_name%>
+  </p>
+  <p>
+    <%=label_tag :phone%>
+    <%=text_field_tag 'user[phone]', @user.phone%>
+  </p>
+  <p>
+    <%=label_tag 'Phase'%>
+    <select name='user[phase]'>
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+    </select>
+  </p>
+  <p>
+    <%=label_tag 'Are you registering as a mentor?'%>
+    <%=check_box_tag 'user[type]', 'Mentor', 'Student'%>
+  </p>
+  <%=submit_tag%>
+<%end%>
+
+<!-- , {value=@user.try(:email)} -->
