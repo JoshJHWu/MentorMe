@@ -1,9 +1,7 @@
 <h1>Appointment with <%=@appointment.mentor.first_name%></h1>
+
 <p>
-  Appointment at: <%=@appointment.start_date%>
-</p>
-<p>
-  Appointment at: <%=@appointment.start_time%>
+  Appointment at: <%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%>
 </p>
 <p>
   Duration: <%=@appointment.duration%>

@@ -1,5 +1,5 @@
 class Appointment < ActiveRecord::Base
-  validates :start_time, :mentor_id, presence: true
+  validates :start_datetime, :mentor_id, presence: true
 
   belongs_to :user
   belongs_to :mentor, class_name: "User"

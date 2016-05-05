@@ -14,6 +14,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params.merge(mentor_id: session[:user_id]))
+    @appointment.start_datetime = make_start_datetime(params[:appointment][:start_date], params[:appointment][:start_time])
+
     if @appointment.save
       redirect_to '/'
     else
@@ -32,7 +34,12 @@ class AppointmentsController < ApplicationController
   end
 
   private
+  def make_start_datetime(date,time)
+    dt = "#{date} #{time}"
+    return DateTime.parse(dt)
+  end
+
   def appointment_params
-    params.require(:appointment).permit(:start_time, :start_date, :duration)
+    params.require(:appointment).permit( :duration)
   end
 end

@@ -3,11 +3,12 @@
 <%=form_for @appointment do |f|%>
   <p>
     <%=f.label 'Start date' %>
-    <%= f.date_select :start_date %>
+    <input  type="date" name="appointment[start_date]">
   </p>
-  <p>
+    <p>
     <%=f.label 'Start time' %>
-    <%= f.time_select :start_time, ampm: true, minute_step: 30 %>
+    <input type='time' name="appointment[start_time]">
+
   </p>
   <p>
     <%=label_tag 'Duration in minutes'%>
