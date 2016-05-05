@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
     self.type.downcase == "mentor"
   end
 
+  has_many :appointments
 end

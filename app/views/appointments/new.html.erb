@@ -1,0 +1,20 @@
+<h1>Create Appointment</h1>
+
+<%=form_for @appointment do |f|%>
+  <p>
+    <%=f.label 'Start date' %>
+    <%= f.date_select :start_date %>
+  </p>
+  <p>
+    <%=f.label 'Start time' %>
+    <%= f.time_select :start_time, ampm: true, minute_step: 30 %>
+  </p>
+  <p>
+    <%=label_tag 'Duration in minutes'%>
+    <select name='appointment[duration]'>
+      <option value='30'>30</option>
+      <option value='60'>60</option>
+    </select>
+  </p>
+  <%=f.submit%>
+<%end%>

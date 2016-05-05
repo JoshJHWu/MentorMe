@@ -1,0 +1,16 @@
+<h1>Appointment with <%=@appointment.mentor.first_name%></h1>
+<p>
+  Appointment at: <%=@appointment.start_date%>
+</p>
+<p>
+  Appointment at: <%=@appointment.start_time%>
+</p>
+<p>
+  Duration: <%=@appointment.duration%>
+</p>
+
+<%if !@appointment.is_booked? && !current_user.is_mentor? %>
+  <%=form_for @appointment do |f|%>
+    <%=f.submit "Book-it" %>
+  <%end%>
+<%end%>
