@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  def index
+    @reviews = Review.all
+  end
+
   def new
     @review = Review.new
   end
@@ -21,8 +25,6 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    @author = @review.user
-    @author_name = "#{@author.first_name} #{@author.last_name}"
   end
 
   private
