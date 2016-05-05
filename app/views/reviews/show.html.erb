@@ -1,5 +1,5 @@
 <div class="container">
   <p>You were rated: <%= @review.rating %>/5</p>
-  <p><%= @author_name %> left you this feedback:<br>
+  <p><%= @review.author_fullname %> left you this feedback:<br>
   <%= @review.body %></p>
 </div>
