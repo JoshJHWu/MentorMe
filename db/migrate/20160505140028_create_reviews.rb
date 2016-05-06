@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :type, null: false
       t.integer :rating, null: false
       t.text :body, null: false
-      # t.references :appointment, null: false #commented for testing before appointments built
+      t.references :appointment, null: false
       t.references :user, null: false
 
       t.timestamps null: false
