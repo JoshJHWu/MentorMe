@@ -18,7 +18,7 @@
   </p>
   <p>
     <%=f.fields_for :topics do |topic_field|%>
-      <%= @topics.each do |topic|%>
+      <% @topics.each do |topic|%>
       <p>
         <%= topic_field.check_box topic.name %><%=topic.name%>
       </p>

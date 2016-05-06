@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :appointments, only: [:index, :create, :new, :show, :update]
   resources :reviews, only: [:new, :create, :show, :index]
+  resources :topics, only: [:show]
 
   get 'login' => 'sessions#new', as: 'login'
   post 'login'=> 'sessions#create'

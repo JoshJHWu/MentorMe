@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def show
-    @topic.find(params[:id])
+    @topic = Topic.find(params[:id])
   end
 
 end

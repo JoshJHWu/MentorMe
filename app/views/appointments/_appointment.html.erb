@@ -5,6 +5,7 @@
   <%if appointment.is_booked?%>
     <h4>Appointment has been booked</h4>
   <%end%>
+
 <%if logged_in?%>
   <%if !appointment.is_booked? && !current_user.is_mentor? %>
     <%=form_for appointment do |f|%>
