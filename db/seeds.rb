@@ -1,16 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create(type:"Mentor",
+            phase:3,
+            email:'a@b.com',
+            password:'123456',
+            phone:'123-456-7890',
+            first_name:'Noah',
+            last_name:'S')
+
+User.create(type:"Student",
+            phase:2,
+            email:'c@d.com',
+            password:'123456',
+            phone:'123-456-7890',
+            first_name:'Saralis',
+            last_name:'Rivera')
+
+User.create(type:"Mentor",
+            phase:3,
+            email:'a@b.com',
+            password:'123456',
+            phone:'123-456-7890',
+            first_name:'Kevin',
+            last_name:'Perkins')
+
+User.create(type:"Student",
+            phase:1,
+            email:'a@b.com',
+            password:'123456',
+            phone:'123-456-7890',
+            first_name:'Ryan',
+            last_name:'Schutte')
+
+ Review.create(type:'ReviewOfStudent',
+               rating:1,
+               body:'Foo bar baz',
+               user_id:1 )
 
 
-User.create(type:"Mentor", phase:1, email:'a@b.com', password:'123456',phone:'7038685306',first_name:'j',last_name:'a')
 
- Review.create(type:'ReviewOfStudent', rating:1, body:'Foo bar baz', user_id:1 )
-
-
-
-test.strftime(format='%A %B %d %Y at %I:%M%p')
+# test.strftime(format='%A %B %d %Y at %I:%M%p')
