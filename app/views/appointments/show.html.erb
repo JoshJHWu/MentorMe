@@ -1,14 +1,19 @@
 <h1>Appointment with <%=@appointment.mentor.first_name%></h1>
+<div class="row">
+  <table id='form-table'>
+    <tr>
+     <td>Appointment at: </td>
+     <td><%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%></td>
+    </tr>
+    <tr>
+     <td> Duration: </td>
+     <td><%=@appointment.duration%></td>
+    </tr>
+  </table>
 
-<p>
-  Appointment at: <%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%>
-</p>
-<p>
-  Duration: <%=@appointment.duration%>
-</p>
-
-<%if !@appointment.is_booked? && !current_user.is_mentor? %>
-  <%=form_for @appointment do |f|%>
-    <%=f.submit "Book-it" %>
+  <%if !@appointment.is_booked? && !current_user.is_mentor? %>
+    <%=form_for @appointment do |f|%>
+      <%=f.submit "Book-it" %>
+    <%end%>
   <%end%>
-<%end%>
+</div>
