@@ -20,10 +20,11 @@
     <%=f.fields_for :topics do |topic_field|%>
       <% @topics.each do |topic|%>
       <p>
-        <%= topic_field.check_box topic.name %><%=topic.name%>
+        <%= topic_field.check_box topic.name %>&nbsp<%=topic.name%>
       </p>
       <%end%>
     <%end%>
   </p>
   <%=f.submit%>
 <%end%>
+
