@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
     redirect_to '/login' unless logged_in?
     @appointment = Appointment.find(params[:id])
     @mentor = @appointment.mentor
-    @user = @appointment.mentor
+    @student = @appointment.student
   end
 
   def create

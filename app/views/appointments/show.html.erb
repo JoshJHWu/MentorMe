@@ -3,10 +3,15 @@
 <p>
   Appointment at: <%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%>
 </p>
+
 <p>
   Duration: <%=@appointment.duration%><br>
-  Mentor Phase:<%=@mentor.phase%>
+  Mentor Phase:<%=@mentor.phase%><br>
+  <%if @appointment.is_booked? %>
+  Booked By: <a href="/users/<%=@student.id%>"><%="#{@student.first_name + " " + @student.last_name}"%></a>
+  <%end%>
 </p>
+
 <%if logged_in?%>
   <%if !@appointment.is_booked? && !current_user.is_mentor? %>
     <%=form_for @appointment do |f|%>
@@ -31,3 +36,4 @@
     Email:<%=@mentor.email%>
     Phone:<%=@mentor.phone%>
 </p>
+
