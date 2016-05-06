@@ -1,26 +1,52 @@
 <h1>Appointment with <a href ="/users/<%=@mentor.id%>"><%=@mentor.first_name%></a></h1>
-
-<p>
-  Appointment at: <%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%>
-</p>
-
-<p>
-  Duration: <%=@appointment.duration%><br>
-  Mentor Phase:<%=@mentor.phase%><br>
+<div class="row">
+  <table id='form-table'>
+    <tr>
+     <td>Appointment at: </td>
+     <td><%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%></td>
+    </tr>
+    <tr>
+     <td> Duration: </td>
+     <td><%=@appointment.duration%></td>
+    </tr>
+    <tr>
+      <td>Mentor Phase:</td>
+      <td><%=@mentor.phase%></td>
+    </tr>
+    <tr>
+      <td>Mentor Phone:</td>
+      <td><%=@mentor.phone%></td>
+    </tr>
+    <tr>
+      <td>Mentor Email:</td>
+      <td><%=@mentor.email%></td>
+    </tr>
   <%if @appointment.is_booked? %>
-  Booked By: <a href="/users/<%=@student.id%>"><%="#{@student.first_name + " " + @student.last_name}"%></a>
+    <tr>
+      <td>Booked By:</td>
+      <td><a href="/users/<%=@student.id%>"><%="#{@student.first_name + " " + @student.last_name}"%></a></td>
+    </tr>
+    <tr>
+      <td>Student Phone:</td>
+      <td><%=@student.phone%></td>
+    </tr>
+    <tr>
+      <td>Student Email:</td>
+      <td><%=@student.email%></td>
+    </tr>
   <%end%>
-</p>
-
-<%if logged_in?%>
-  <%if !@appointment.is_booked? && !current_user.is_mentor? %>
-    <%=form_for @appointment do |f|%>
-      <%=f.submit "Book-it" %>
-    <%end%>
+  <%if logged_in?%>
+    <tr>
+     <td></td>
+     <td><%if !@appointment.is_booked? && !current_user.is_mentor? %>
+           <%=form_for @appointment do |f|%>
+           <%=f.submit "Book-it" %>
+           <%end%>
+         <%end%></td>
+    </tr>
   <%end%>
-<%end%>
+  </table>
 
-<p>
   <h3>Topics</h3>
   <ul>
     <%@appointment.topics.each do |topic|%>
@@ -29,11 +55,19 @@
       </li>
     <%end%>
   </ul>
-</p>
 
-<p>
-  <h3>Mentor Contact Info</h3>
-    Email:<%=@mentor.email%>
-    Phone:<%=@mentor.phone%>
-</p>
+  <table>
+    <tr>
+      <td></td>
+      <td>
+        <% if @appointment.is_reviewable?(current_user) && !@appointment.already_reviewed_by?(current_user)%>
+        <form action= "/reviews/new" method="get">
+           <input type="hidden" name="appointment_id" value="<%=@appointment.id%>" >
+           <input type="submit" value="Post review">
+        </form>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
 

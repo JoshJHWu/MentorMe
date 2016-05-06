@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20160506145405) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "type",       null: false
-    t.integer  "rating",     null: false
-    t.text     "body",       null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "type",           null: false
+    t.integer  "rating",         null: false
+    t.text     "body",           null: false
+    t.integer  "appointment_id", null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "topics", force: :cascade do |t|

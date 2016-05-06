@@ -32,16 +32,26 @@
   <hr>
   <div class="row">
     <div class="col-md-6 col-sm-6">
-      <h3>This is where our commitments </h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit risus vitae imperdiet ullamcorper. Quisque vehicula pellentesque maximus. Curabitur at dignissim sem. Vestibulum eu ipsum sed est suscipit tempor. Cras eget massa purus. Praesent sagittis, tortor in varius auctor, nisi augue elementum mauris, nec rutrum orci mauris in sem. Phasellus posuere ornare leo ut consequat. Maecenas hendrerit, velit at faucibus commodo, ipsum ante pellentesque tortor, a mollis lacus sem non mauris. In tempus laoreet posuere. In quis ullamcorper tellus. Duis vestibulum arcu ut erat blandit aliquam. Etiam a nunc ac nisl sagittis vulputate id id enim. Nulla nec sollicitudin enim.
-
-      Nunc bibendum varius dolor, nec mattis sapien molestie id. Etiam tincidunt eget mauris et venenatis. In rutrum mi nec odio elementum, in interdum ipsum dictum. Fusce fermentum molestie elit, in consequat odio interdum in. Cras tincidunt nunc ipsum, vitae rutrum magna cursus a. Morbi vel enim erat. Donec eros lectus, pharetra sodales felis at, commodo tristique ligula. Nulla semper laoreet cursus. Aliquam pretium sem arcu, ac elementum lorem ullamcorper id. Vivamus et est nibh. Aenean tristique eros ullamcorper diam rutrum congue.</p>
+      <h3>Upcoming Appointments</h3>
+      <p>   </p>
+      <ul>
+      <%@upcoming_appointments.each do |appointment|%>
+        <% if !appointment.is_past? %>
+        <li><a href="/appointments/<%=appointment.id%>"><%=appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p') %></a></li>
+        <% end %>
+      <% end %>
+      </ul>
     </div>
     <div class="col-md-6 col-sm-6">
-      <h3> PAST commitments</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit risus vitae imperdiet ullamcorper. Quisque vehicula pellentesque maximus. Curabitur at dignissim sem. Vestibulum eu ipsum sed est suscipit tempor. Cras eget massa purus. Praesent sagittis, tortor in varius auctor, nisi augue elementum mauris, nec rutrum orci mauris in sem. Phasellus posuere ornare leo ut consequat. Maecenas hendrerit, velit at faucibus commodo, ipsum ante pellentesque tortor, a mollis lacus sem non mauris. In tempus laoreet posuere. In quis ullamcorper tellus. Duis vestibulum arcu ut erat blandit aliquam. Etiam a nunc ac nisl sagittis vulputate id id enim. Nulla nec sollicitudin enim.
-
-      Nunc bibendum varius dolor, nec mattis sapien molestie id. Etiam tincidunt eget mauris et venenatis. In rutrum mi nec odio elementum, in interdum ipsum dictum. Fusce fermentum molestie elit, in consequat odio interdum in. Cras tincidunt nunc ipsum, vitae rutrum magna cursus a. Morbi vel enim erat. Donec eros lectus, pharetra sodales felis at, commodo tristique ligula. Nulla semper laoreet cursus. Aliquam pretium sem arcu, ac elementum lorem ullamcorper id. Vivamus et est nibh. Aenean tristique eros ullamcorper diam rutrum congue.</p>
+      <h3> Past Appointments</h3>
+        <p>Don't forget to leave feedback!</p>
+      <ul>
+      <%@upcoming_appointments.each do |appointment|%>
+        <% if appointment.is_past? %>
+        <li><a href="/appointments/<%=appointment.id%>"><%=appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p') %></a></li>
+        <% end %>
+      <% end %>
+      </ul>
     </div>
   </div>
   <hr>
@@ -49,10 +59,7 @@
     <div class="col-md-2 col-sm-2">
     </div>
      <div class="col-md-8 col-sm-8">
-      <h3>Feedback goes here!</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit risus vitae imperdiet ullamcorper. Quisque vehicula pellentesque maximus. Curabitur at dignissim sem. Vestibulum eu ipsum sed est suscipit tempor. Cras eget massa purus. Praesent sagittis, tortor in varius auctor, nisi augue elementum mauris, nec rutrum orci mauris in sem. Phasellus posuere ornare leo ut consequat. Maecenas hendrerit, velit at faucibus commodo, ipsum ante pellentesque tortor, a mollis lacus sem non mauris. In tempus laoreet posuere. In quis ullamcorper tellus. Duis vestibulum arcu ut erat blandit aliquam. Etiam a nunc ac nisl sagittis vulputate id id enim. Nulla nec sollicitudin enim.
-
-      Nunc bibendum varius dolor, nec mattis sapien molestie id. Etiam tincidunt eget mauris et venenatis. In rutrum mi nec odio elementum, in interdum ipsum dictum. Fusce fermentum molestie elit, in consequat odio interdum in. Cras tincidunt nunc ipsum, vitae rutrum magna cursus a. Morbi vel enim erat. Donec eros lectus, pharetra sodales felis at, commodo tristique ligula. Nulla semper laoreet cursus. Aliquam pretium sem arcu, ac elementum lorem ullamcorper id. Vivamus et est nibh. Aenean tristique eros ullamcorper diam rutrum congue.</p>
+      <h3>Feedback:</h3>
     </div>
      <div class="col-md-2 col-sm-2">
     </div>

@@ -1,5 +1,6 @@
 <h2>This is the Appointments index</h2>
-<%if logged_in?%>
+
+<% if logged_in? %>
   <%if current_user.is_mentor? %>
     <%= link_to "Create a new appointment", new_appointment_path %>
   <% end %>
