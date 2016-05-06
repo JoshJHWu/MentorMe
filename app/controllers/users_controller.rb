@@ -23,11 +23,11 @@ class UsersController < ApplicationController
       @upcoming_appointments = Appointment.all.where(mentor: User.find(params[:id]))
     end
 
-    # if @user.type == "Student"
-    #   @reviews = ReviewOfStudent.last.appointment.student
-    # else
-    #   @reviews = ReviewOfMentor.last.appointment.mentor
-    # end
+    if @user.type == "Student"
+      @reviews = ReviewOfStudent.all
+    else
+      @reviews = ReviewOfMentor.all
+    end
   end
 
   private
