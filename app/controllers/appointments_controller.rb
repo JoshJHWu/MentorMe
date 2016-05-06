@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @topics = Topic.all
   end
 
   def show
@@ -15,6 +16,13 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params.merge(mentor_id: session[:user_id]))
     @appointment.start_datetime = make_start_datetime(params[:appointment][:start_date], params[:appointment][:start_time])
+
+    params[:appointment][:topics].each do |key, value|
+      if value == "1"
+        @appointment.topics << Topic.find_by(name: key)
+      end
+    end
+
 
     if @appointment.save
       redirect_to '/'
@@ -40,6 +48,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit( :duration)
+    params.require(:appointment).permit(:duration, :topics)
   end
 end

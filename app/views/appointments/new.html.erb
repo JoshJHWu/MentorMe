@@ -8,14 +8,22 @@
     <p>
     <%=f.label 'Start time' %>
     <input type='time' name="appointment[start_time]">
-
   </p>
   <p>
-    <%=label_tag 'Duration in minutes'%>
+    <%=f.label'Duration in minutes'%>
     <select name='appointment[duration]'>
       <option value='30'>30</option>
       <option value='60'>60</option>
     </select>
+  </p>
+  <p>
+    <%=f.fields_for :topics do |topic_field|%>
+      <%= @topics.each do |topic|%>
+      <p>
+        <%= topic_field.check_box topic.name %><%=topic.name%>
+      </p>
+      <%end%>
+    <%end%>
   </p>
   <%=f.submit%>
 <%end%>

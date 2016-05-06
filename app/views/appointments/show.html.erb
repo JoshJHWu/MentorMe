@@ -12,3 +12,12 @@
     <%=f.submit "Book-it" %>
   <%end%>
 <%end%>
+
+<p>
+  <h3>Topics</h3>
+  <ul>
+    <%@appointment.topics.each do |topic|%>
+      <li><%=topic.name%></li>
+    <%end%>
+  </ul>
+</p>
