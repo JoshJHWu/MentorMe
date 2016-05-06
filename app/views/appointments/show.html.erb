@@ -17,6 +17,18 @@
            <%end%>
          <%end%></td>
     </tr>
+    <tr>
+      <td></td>
+      <td>
+        <% if @appointment.is_reviewable?(current_user) && !@appointment.already_reviewed_by?(current_user)%>
+        <form action= "/reviews/new" method="get">
+           <input type="hidden" name="appointment_id" value="<%=@appointment.id%>" >
+           <input type="submit" value="Post review">
+        </form>
+        <% end %>
+      </td>
+    </tr>
+
   </table>
 
 
