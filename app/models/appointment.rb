@@ -4,6 +4,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :user
   belongs_to :mentor, class_name: "User"
   belongs_to :student, class_name: "User"
+  has_many :reviews
   has_one :review_of_mentor
   has_one :review_of_student
 

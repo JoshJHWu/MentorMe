@@ -17,6 +17,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user.type == "Student"
+      @upcoming_appointments = Appointment.all.where(student: User.find(params[:id]))
+    else
+      @upcoming_appointments = Appointment.all.where(mentor: User.find(params[:id]))
+    end
+
+    # if @user.type == "Student"
+    #   @reviews = ReviewOfStudent.last.appointment.student
+    # else
+    #   @reviews = ReviewOfMentor.last.appointment.mentor
+    # end
   end
 
   private
