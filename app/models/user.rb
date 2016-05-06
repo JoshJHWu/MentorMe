@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :type, :phase, :email, :password, :phone, :first_name, :last_name, presence: true, on: :create
+  validates :type, :phase, :email, :phone, :first_name, :last_name, presence: true, on: :create
   validates :type, :phase, :email, :phone, :first_name, :last_name, presence: true, on: :update
   validates :email, :phone, uniqueness: true
   validates :password, length: {minimum: 6}
