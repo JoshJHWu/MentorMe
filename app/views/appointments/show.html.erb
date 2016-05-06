@@ -1,10 +1,11 @@
-<h1>Appointment with <%=@appointment.mentor.first_name%></h1>
+<h1>Appointment with <a href ="/users/<%=@mentor.id%>"><%=@mentor.first_name%></a></h1>
 
 <p>
   Appointment at: <%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%>
 </p>
 <p>
-  Duration: <%=@appointment.duration%>
+  Duration: <%=@appointment.duration%><br>
+  Mentor Phase:<%=@mentor.phase%>
 </p>
 
 <%if !@appointment.is_booked? && !current_user.is_mentor? %>
@@ -20,4 +21,10 @@
       <li><%=topic.name%></li>
     <%end%>
   </ul>
+</p>
+
+<p>
+  <h3>Mentor Contact Info</h3>
+    Email:<%=@mentor.email%>
+    Phone:<%=@mentor.phone%>
 </p>

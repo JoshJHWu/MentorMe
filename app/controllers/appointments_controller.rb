@@ -11,6 +11,8 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    @mentor = @appointment.mentor
+    @user = @appointment.mentor
   end
 
   def create
