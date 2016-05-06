@@ -4,6 +4,9 @@ class Appointment < ActiveRecord::Base
   belongs_to :user
   belongs_to :mentor, class_name: "User"
   belongs_to :student, class_name: "User"
+  has_many :reviews
+  has_many :review_of_mentor, class_name: "Review"
+  has_many :review_of_student, class_name: "Review"
 
   def is_booked?
     if self.student_id == nil
@@ -12,4 +15,17 @@ class Appointment < ActiveRecord::Base
       return true
     end
   end
+
+  def is_past?
+    (Time.now - self.start_datetime).to_i > (self.duration.to_i * 60)
+  end
+
+  def is_owned_by?(user)
+    self.student == user || self.mentor == user
+  end
+
+  def is_reviewable?(user)
+    self.is_booked? && self.is_past? && self.is_owned_by?(user)
+  end
+
 end
