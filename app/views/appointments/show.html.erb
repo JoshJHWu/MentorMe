@@ -1,14 +1,39 @@
-<h1>Appointment with <%=@appointment.mentor.first_name%></h1>
+<h1>Appointment with <a href ="/users/<%=@mentor.id%>"><%=@mentor.first_name%></a></h1>
 
 <p>
   Appointment at: <%=@appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%>
 </p>
+
 <p>
-  Duration: <%=@appointment.duration%>
+  Duration: <%=@appointment.duration%><br>
+  Mentor Phase:<%=@mentor.phase%><br>
+  <%if @appointment.is_booked? %>
+  Booked By: <a href="/users/<%=@student.id%>"><%="#{@student.first_name + " " + @student.last_name}"%></a>
+  <%end%>
 </p>
 
-<%if !@appointment.is_booked? && !current_user.is_mentor? %>
-  <%=form_for @appointment do |f|%>
-    <%=f.submit "Book-it" %>
+<%if logged_in?%>
+  <%if !@appointment.is_booked? && !current_user.is_mentor? %>
+    <%=form_for @appointment do |f|%>
+      <%=f.submit "Book-it" %>
+    <%end%>
   <%end%>
 <%end%>
+
+<p>
+  <h3>Topics</h3>
+  <ul>
+    <%@appointment.topics.each do |topic|%>
+      <li>
+        <a href='/topics/<%=topic.id%>'><%=topic.name%></a>
+      </li>
+    <%end%>
+  </ul>
+</p>
+
+<p>
+  <h3>Mentor Contact Info</h3>
+    Email:<%=@mentor.email%>
+    Phone:<%=@mentor.phone%>
+</p>
+

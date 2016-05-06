@@ -1,0 +1,19 @@
+<h1>Available Appointments for <%=@topic.name%></h1>
+
+<%@topic.appointments.each do |appointment|%>
+  <hr>
+  <p>
+    <a href="/appointments/<%=appointment.id%>"><%=appointment.start_datetime.strftime(format='%A %B %d %Y at %I:%M%p')%> with <%=appointment.mentor.first_name%></a>
+
+    <%if appointment.is_booked?%>
+      <h4>Appointment has been booked</h4>
+    <%end%>
+  <%if logged_in?%>
+    <%if !appointment.is_booked? && !current_user.is_mentor? %>
+      <%=form_for appointment do |f|%>
+        <%=f.submit "Book-it" %>
+      <%end%>
+    <%end%>
+  <%end%>
+  </p>
+<%end%>
