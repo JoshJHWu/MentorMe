@@ -9,11 +9,15 @@
      <td> Duration: </td>
      <td><%=@appointment.duration%></td>
     </tr>
+    <tr>
+     <td> </td>
+     <td><%if !@appointment.is_booked? && !current_user.is_mentor? %>
+           <%=form_for @appointment do |f|%>
+           <%=f.submit "Book-it" %>
+           <%end%>
+         <%end%></td>
+    </tr>
   </table>
 
-  <%if !@appointment.is_booked? && !current_user.is_mentor? %>
-    <%=form_for @appointment do |f|%>
-      <%=f.submit "Book-it" %>
-    <%end%>
-  <%end%>
+
 </div>
