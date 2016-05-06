@@ -1,3 +1,22 @@
+User.destroy_all
+Review.destroy_all
+Topic.destroy_all
+
+#creating topics
+Topic.create(name: "Algorithms")
+Topic.create(name: "Javascript")
+Topic.create(name: "Rails")
+Topic.create(name: "CRUD")
+Topic.create(name: "AJAX")
+Topic.create(name: "Regex")
+Topic.create(name: "MVC")
+Topic.create(name: "Inheritance")
+Topic.create(name: "Active Record")
+Topic.create(name: "SQLite3")
+Topic.create(name: "API/Parsing")
+Topic.create(name: "EE")
+
+#creating dummy users
 User.create(type:"Mentor",
             phase:3,
             email:'a@b.com',
@@ -34,7 +53,3 @@ User.create(type:"Student",
  #               rating:1,
  #               body:'Foo bar baz',
  #               user_id:1 )
-
-
-
-# test.strftime(format='%A %B %d %Y at %I:%M%p')

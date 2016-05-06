@@ -1,4 +1,4 @@
-<h1>Appointment with <%=@appointment.mentor.first_name%></h1>
+<h1>Appointment with <a href ="/users/<%=@mentor.id%>"><%=@mentor.first_name%></a></h1>
 <div class="row">
   <table id='form-table'>
     <tr>
@@ -10,13 +10,53 @@
      <td><%=@appointment.duration%></td>
     </tr>
     <tr>
-     <td> </td>
+      <td>Mentor Phase:</td>
+      <td><%=@mentor.phase%></td>
+    </tr>
+    <tr>
+      <td>Mentor Phone:</td>
+      <td><%=@mentor.phone%></td>
+    </tr>
+    <tr>
+      <td>Mentor Email:</td>
+      <td><%=@mentor.email%></td>
+    </tr>
+  <%if @appointment.is_booked? %>
+    <tr>
+      <td>Booked By:</td>
+      <td><a href="/users/<%=@student.id%>"><%="#{@student.first_name + " " + @student.last_name}"%></a></td>
+    </tr>
+    <tr>
+      <td>Student Phone:</td>
+      <td><%=@student.phone%></td>
+    </tr>
+    <tr>
+      <td>Student Email:</td>
+      <td><%=@student.email%></td>
+    </tr>
+  <%end%>
+  <%if logged_in?%>
+    <tr>
+     <td></td>
      <td><%if !@appointment.is_booked? && !current_user.is_mentor? %>
            <%=form_for @appointment do |f|%>
            <%=f.submit "Book-it" %>
            <%end%>
          <%end%></td>
     </tr>
+  <%end%>
+  </table>
+
+  <h3>Topics</h3>
+  <ul>
+    <%@appointment.topics.each do |topic|%>
+      <li>
+        <a href='/topics/<%=topic.id%>'><%=topic.name%></a>
+      </li>
+    <%end%>
+  </ul>
+
+  <table>
     <tr>
       <td></td>
       <td>
@@ -28,8 +68,6 @@
         <% end %>
       </td>
     </tr>
-
   </table>
-
-
 </div>
+

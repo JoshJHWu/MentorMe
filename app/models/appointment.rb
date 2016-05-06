@@ -7,6 +7,8 @@ class Appointment < ActiveRecord::Base
   has_many :reviews
   has_one :review_of_mentor
   has_one :review_of_student
+  has_many :appointment_topics
+  has_many :topics, through: :appointment_topics
 
   def is_booked?
     if self.student_id == nil
