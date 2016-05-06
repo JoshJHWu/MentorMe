@@ -6,6 +6,7 @@
     <h1>Leave feedback below!</h1>
     <p>Remember, feedback should be actionable, specific, and kind!</p>
     <%=form_for @review do |f| %>
+   <input type="hidden" name="review[appointment_id]" value="<%=@appointment.id%>" >
       <table id='form-table'>
         <tr>
           <td>Rating (1-5):</td>

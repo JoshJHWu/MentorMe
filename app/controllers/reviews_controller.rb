@@ -5,11 +5,15 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @appointment = Appointment.find(params[:appointment_id])
   end
 
   def create
+
     @review = Review.new(review_params)
+    # @review.appointment = Appointment.find(params[:appointment_id])
     @review.user = current_user
+
     if current_user.is_mentor?
       @review.type = "ReviewOfStudent"
     else
@@ -32,7 +36,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:type,
                                    :rating,
                                    :body,
-                                   # :appointment,
+                                   :appointment_id,
                                    :user)
   end
 
