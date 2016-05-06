@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
   def create
 
     @review = Review.new(review_params)
-    # @review.appointment = Appointment.find(params[:appointment_id])
     @review.user = current_user
 
     if current_user.is_mentor?

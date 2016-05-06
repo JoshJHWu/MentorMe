@@ -60,6 +60,17 @@
     </div>
      <div class="col-md-8 col-sm-8">
       <h3>Feedback:</h3>
+      <div class="container">
+        <%@reviews.each do |review|%>
+         <%if review.appointment.mentor = @user%>
+         <div class="container">
+            <p>You were rated: <%= review.rating %>/5</p>
+            <p><%= review.author_fullname %> left you this feedback:<br>
+              <%= review.body %></p>
+            </div>
+          <%end %>
+        <%end %>
+      </div>
     </div>
      <div class="col-md-2 col-sm-2">
     </div>
