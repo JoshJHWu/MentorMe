@@ -7,10 +7,11 @@
   Duration: <%=@appointment.duration%><br>
   Mentor Phase:<%=@mentor.phase%>
 </p>
-
-<%if !@appointment.is_booked? && !current_user.is_mentor? %>
-  <%=form_for @appointment do |f|%>
-    <%=f.submit "Book-it" %>
+<%if logged_in?%>
+  <%if !@appointment.is_booked? && !current_user.is_mentor? %>
+    <%=form_for @appointment do |f|%>
+      <%=f.submit "Book-it" %>
+    <%end%>
   <%end%>
 <%end%>
 
@@ -18,7 +19,9 @@
   <h3>Topics</h3>
   <ul>
     <%@appointment.topics.each do |topic|%>
-      <li><%=topic.name%></li>
+      <li>
+        <a href='/topics/<%=topic.id%>'><%=topic.name%></a>
+      </li>
     <%end%>
   </ul>
 </p>
